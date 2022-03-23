@@ -1,14 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import './App.css';
 import GifList from './components/GifList';
 import GifForm from './components/GifForm';
-import data from './data/gifs';
 
 function App(props) {
-  const gifs = data
-  const loading = false
-  const error = ''
-
+  const { loading, gifs } = props
   return (
     <div className="App">
       <h1>Search for Gifs</h1>
@@ -22,4 +19,11 @@ function App(props) {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    gifs: state.gifs,
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps)(App);
