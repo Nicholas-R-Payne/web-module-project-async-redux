@@ -3,12 +3,12 @@ import axios from 'axios';
 export const FETCH_START = 'FETCH_START'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 
-export const getGifs = () => {
+export const getGifs = (searchTerm) => {
     return((dispatch => {
-        dispatch({ type: FETCH_START })
-        axios.get('https://api.giphy.com/v1/gifs/search?api_key=eF68i1SpJhoVnYQRTDKYcXdtpZlGeJDP&q=cats')
+        dispatch(fetchStart())
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=eF68i1SpJhoVnYQRTDKYcXdtpZlGeJDP&q=${searchTerm}`)
             .then(res => {
-                dispatch({ type: FETCH_SUCCESS, payload: res.data.data })
+                dispatch(fetchSuccess(res.data.data))
             })
             .catch(err => {
                 console.log(err)
