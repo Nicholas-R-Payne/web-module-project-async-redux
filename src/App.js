@@ -12,7 +12,7 @@ function App(props) {
       <GifForm />
 
       {
-        loading ? <h3>We are loading</h3> : <GifList gifs={gifs} />
+        loading ? <h3>We are loading</h3> : <GifList />
       }
 
     </div>
@@ -21,7 +21,6 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    gifs: state.gifs,
     loading: state.loading
   }
 }
