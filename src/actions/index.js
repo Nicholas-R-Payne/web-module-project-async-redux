@@ -6,7 +6,7 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 export const getGifs = (searchTerm) => {
     return((dispatch => {
         dispatch(fetchStart())
-        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=eF68i1SpJhoVnYQRTDKYcXdtpZlGeJDP&q=${searchTerm}`)
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=eF68i1SpJhoVnYQRTDKYcXdtpZlGeJDP&q=pokemon ${searchTerm}`)
             .then(res => {
                 dispatch(fetchSuccess(res.data.data))
             })

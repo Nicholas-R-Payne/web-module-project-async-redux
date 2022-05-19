@@ -16,7 +16,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <h1>Search for Gifs</h1>
+      <h1>Search for Pokemon Gifs</h1>
       <GifForm />
 
       {
